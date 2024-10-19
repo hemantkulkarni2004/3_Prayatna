@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(90deg,rgba(2,0,36,1)0%,rgba(0,212,255,1)0%,rgba(9,9,121,1)100%);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .patient-details {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .patient-info {
+            flex-grow: 1;
+        }
+
+        .patient-name {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .patient-age,
+        .patient-condition {
+            margin: 5px 0;
+            color: #555;
+        }
+      .ab{
+        padding: 50px;
+      }
+      /* From Uiverse.io by cssbuttons-io */ 
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #20e97b;
+  border-radius: 4px;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 19px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  background-color: rgb(20, 241, 123);
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(215, 233, 19, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #39bda7;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:hover {
+  color: #ffffff;
+  border: 1px solid #39bda7;
+}
+
+.button:hover:before {
+  top: -35%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:hover:after {
+  top: -45%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+        .horizontal-container {
+            display: flex;
+            max-width: 1400px;
+            max-height: 800px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .purpose, .map {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 58%; /* Adjust width as needed */
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px; /* Adjust height as needed */
+        }
+
+        .risk-factors {
+            display: flex;
+            gap: 10px; /* Space between ovals */
+            margin-top: 10px; /* Space above risk factors */
+        }
+
+        .oval {
+            background-color: yellow;
+            border-radius: 25px; /* Make it oval */
+            width: 40px; /* Width of the oval */
+            height: 20px; /* Height of the oval */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: black;
+        }
+        /* From Uiverse.io by andrew-demchenk0 */ 
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="patient-details">
+            <img src="grandfather.jpg" alt="Patient Photo" class="patient-photo">
+            <div class="patient-info">
+                <h2 class="patient-name">Sanket Gambhire</h2>
+                <button id="call-button" class="button">Call Now</button>
+                <p class="patient-age">Age: <span>62</span></p>
+                <p class="patient-condition">Risk Factors: Average</p>
+               
+                
+                <!-- Risk Factors Ovals -->
+                <div class="risk-factors">
+                    <div class="oval"></div>
+                    <div class="oval"></div>
+                    <div class="oval"></div>
+                </div>
+                
+              
+
+
+            </div>
+        </div>
+        
+        <div class="horizontal-container">
+            <div class="purpose">
+                <h3>Purpose of Visit</h3>
+                <ul>
+                    <li>Routine check-up</li>
+                    <li>Consultation with the doctor</li>
+                    <li>Health assessment and follow-up</li>
+                </ul>
+            </div>
+            <div class="map">
+                <h3>Location</h3>
+                <iframe src="https://maps.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509853!2d144.9537353153187!3d-37.81720997975123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f1f1b3b%3A0x5045675218ceed3!2s123%20Health%20St%2C%20Wellness%20City!5e0!3m2!1sen!2sau!4v1616178382950!5m2!1sen!2sau" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function makeCall(phoneNumber) {
+        if (validatePhoneNumber(phoneNumber)) {
+          window.location.href = "tel:" + phoneNumber;
+        } else {
+          alert("Invalid phone number.");
+        }
+      }
+      
+      function validatePhoneNumber(phoneNumber) {
+        // Implement your phone number validation logic here
+        // For example, you can use a regular expression:
+        const phoneRegex = /^\+91[6-9]\d{9}$/; // For Indian numbers
+        return phoneRegex.test(phoneNumber);
+      }
+      
+      document.getElementById("call-button").addEventListener("click", function() {
+        const phoneNumber = "+917058341645"; // Replace with the desired phone number
+        makeCall(phoneNumber);
+      });
+    </script>
+</body>
+</html>

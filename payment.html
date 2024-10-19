@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body{
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+        }
+        .btn{
+            
+                padding: 1.3em 3em;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                font-weight: 500;
+                color: #000;
+                background-color: #fff;
+                border: none;
+                border-radius: 45px;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                outline: none;
+                margin-left: 50px;
+            }
+            button:hover {
+                background-color:rgba(9,9,121,1);
+                box-shadow: 0px 15px 20px rgba(9,9,121,1);
+                color:#fff;
+                transform: translateY(-7px);
+            }
+            button:active {
+                transform: translateY(-1px);
+            }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-80">
+        <h2 class="text-2xl font-bold mb-4">Choose Payment Method</h2>
+        <form id="paymentForm">
+            <div class="mb-4">
+                <input type="radio" id="cod" name="paymentMethod" value="COD" class="mr-2" required>
+                <label for="cod" class="cursor-pointer">Cash Payment</label>
+            </div>
+            <div class="mb-4">
+                <input type="radio" id="transfer" name="paymentMethod" value="TRANSFER" class="mr-2" required>
+                <label for="transfer" class="cursor-pointer">Transfer Payment to Someone</label>
+            </div>
+            <div id="transferDetails" class="hidden mb-4">
+                <label for="email" class="block mb-2">Recipient Email:</label>
+                <input type="email" id="email" name="email" class="border rounded w-full p-2" placeholder="Enter recipient's email">
+            </div>
+            <button type="submit" class="btn">Proceed</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide email input based on selected payment method
+        document.querySelectorAll('input[name="paymentMethod"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                const transferDetails = document.getElementById('transferDetails');
+                if (event.target.value === 'TRANSFER') {
+                    transferDetails.classList.remove('hidden');
+                } else {
+                    transferDetails.classList.add('hidden');
+                }
+            });
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            if (paymentMethod === 'COD') {
+                alert('Payment done!');
+                // Handle COD logic here
+            } else if (paymentMethod === 'TRANSFER') {
+                const recipientEmail = document.getElementById('email').value;
+                if (recipientEmail) {
+                    alert(`Payment will be transferred to ${recipientEmail}.`);
+                    // Implement logic to handle payment transfer via email
+                    // For example, send an email notification to the recipient
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

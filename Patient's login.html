@@ -1,0 +1,248 @@
+<html>
+ <head>
+  <title>
+   Helping Angels
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  body {
+
+margin: 0;
+
+font-family: 'Arial', sans-serif;
+
+display: flex;
+
+height: 100vh;
+
+background: linear-gradient(to right, #8ba1b7, #bdc3c7);
+
+}
+
+.container {
+
+display: flex;
+
+width: 100%;
+
+height: 100%;
+
+}
+
+.left {
+
+flex: 1;
+
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 100% );
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+position: relative;
+
+}
+
+.login-container {
+
+background-color: white;
+
+padding: 20px;
+
+border-radius: 8px;
+
+width: 300px;
+
+}
+
+h2 {
+
+text-align: center;
+
+margin-bottom: 20px;
+
+}
+
+.form-group {
+
+margin-bottom: 15px;
+
+}
+
+label {
+
+display: block;
+
+margin-bottom: 5px;
+
+}
+
+input[type="text"], input[type="number"], select {
+
+width: 100%;
+
+padding: 8px;
+
+border: 1px solid #ccc;
+
+border-radius: 4px;
+
+}
+
+button {
+
+width: 100%;
+
+padding: 10px;
+
+background-color: #007BFF;
+
+color: white;
+
+border: none;
+
+border-radius: 4px;
+
+cursor: pointer;
+
+transition: background-color 0.3s ease;
+
+}
+
+button:hover {
+
+background-color: #0056b3;
+
+}
+
+.left img {
+
+width: 80%;
+
+border-radius: 20px;
+
+}
+
+.left .logo {
+
+position: absolute;
+
+top: 20px;
+
+left: 20px;
+
+color: white;
+
+font-size: 48px;
+
+display: flex;
+
+align-items: center;
+font-family: 'Poppins', sans-serif;
+}
+
+.left .logo i {
+
+margin-right: 10px;
+
+}
+
+.right {
+
+flex: 1;
+
+background: #f5f7fa;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+}
+
+.form-container {
+
+background: white;
+
+padding: 40px;
+
+border-radius: 20px;
+
+width: 80%;
+
+max-width: 400px;
+
+}
+        
+       
+  </style>
+ </head>
+ <body>
+  <div class="container">
+    
+   <div class="left">
+    <div class="logo">
+     <i class="fas fa-heart">
+     </i>
+     Helping Angels
+    </div>
+    <img alt="" height="450" src="a.jpg" width="400"/>
+   
+   </div>
+   <div class="right">
+    <div class="form-container">
+     <div class="tabs">
+      <div class="active">
+       
+      </div>
+      <div>
+       
+      </div>
+     </div>
+     <h2>
+     
+     </h2>
+     <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone No:</label>
+                <input type="text" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group:</label>
+                <select id="bloodGroup">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>            
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="window.location.href='file:///C:/Users/Dell/Desktop/coep%20hack/patientinterface.html'">Sign in</button>
+            </div>
+        </form>
+    </div>

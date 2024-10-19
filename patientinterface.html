@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Interface</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%,rgba(9,9,121,1) 100% );
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+        .sidebar:hover {
+            width: 250px;
+        }
+        .menu-icon {
+            width: 30px;  
+            height: 2px;  
+            background-color: #333; 
+            margin: 2px 0;  
+            transition: background-color 0.3s;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 60px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+        .sidebar:hover .dropdown-content {
+            display: block;
+        }
+        .content {
+            margin-left: 60px; 
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center items vertically */
+            height: 100vh; 
+        }
+        iframe {
+            border: none; 
+            margin-top: 20px; 
+            height: 650px; /* Adjusted height for the iframe */
+            width: 100%;
+            border-radius: 1%; 
+        }
+        .nurse-status-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  
+  margin: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.available-nurses, .unavailable-nurses, .busy-nurses {
+  flex-basis: 30%;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.available-nurses {
+  background-color: #c6efce;
+}
+
+.unavailable-nurses {
+  background-color: #f7cac9;
+}
+
+.busy-nurses {
+  background-color: #87ceeb;
+}
+
+h2 {
+  margin-top: 0;
+}
+        button {
+            padding: 1.3em 3em;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+            margin: 20px;
+        }
+        button:hover {
+            background-color:rgba(9,9,121,1);
+            box-shadow: 0px 15px 20px rgba(9,9,121,1);
+            color:#fff;
+            transform: translateY(-7px);
+        }
+        button:active {
+            transform: translateY(-1px);
+        }
+        .profile-picture {
+    width: 50px; /* Profile picture size */
+    height: 50px; /* Profile picture size */
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-contact {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.profile-address {
+    font-size: 12px;
+}
+.his{
+
+            padding: 1.3em 3em;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            color: #ffffff;
+            background-color:rgba(9,9,121,1);
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+            margin: 40px;
+        }
+        his:hover {
+            background-color:rgb(255, 255, 255);
+            box-shadow: 0px 15px 20px rgb(255, 255, 255);
+            color:#fff;
+            transform: translateY(-7px);
+        }
+        his:active {
+            transform: translateY(-1px);
+        }
+.pay-button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: rgba(9, 9, 121, 1);
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin: 20px 0 0 0; /* Margin for spacing */
+    width: 100%; /* Full width */
+}
+
+.pay-button:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 15px 20px rgb(255, 255, 255);
+    color: #000; /* Change text color on hover */
+    transform: translateY(-7px);
+}
+
+.pay-button:active {
+    transform: translateY(-1px);
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class ="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="dropdown-content">
+            <div class="profile">
+                <img src="grandfather.jpg" alt="Profile Picture" class="profile-picture">
+               
+                <p class="profile-name">Patient Name:Sanket Gambhire</p>
+                <p class="profile-bloodGroup">BloodGroup:B+</p>
+                <p class="profile-contact">Contact:9860185864</p>
+                <p class="profile-address">Address:flat no-1103,nuclus app.   
+                    mg road,    pune400201
+                </p>
+                <button class="his"> history</button>
+               
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <iframe src="https://api.mapbox.com/styles/v1/mralexithymic/cm2eqdo6w005j01r27ukwefxs.html?title=false&access_token=pk.eyJ1IjoibXJhbGV4aXRoeW1pYyIsImEiOiJjbTJlcGd0cmMwMHNhMmtzMW15dGR1N2V3In0.OvzVA14aEAmx4unhoke8SQ&zoomwheel=false#16/18.531403/73.852363" title="user map"></iframe>
+        <a href="file:///C:/Users/Dell/Desktop/coep%20hack/neha.html"><button>Call Nurse</button></a> <!-- New button added here -->
+        <div class="nurse-status-container">
+            <div class="available-nurses">
+              <h2>Available Nurses: <span id="available-count">25</span></h2>
+           </div>
+            <div class="unavailable-nurses">
+              <h2>Unavailable Nurses: <span id="unavailable-count">10</span></h2>
+            </div>
+            <div class="busy-nurses">
+              <h2>Busy Nurses: <span id="busy-count">15</span></h2>
+            </div>
+          </div>
+    </div>
+    <div class="sidebar">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="dropdown-content">
+            <div class="profile">
+                <img src="grandfather.jpg" alt="Profile Picture" class="profile-picture">
+                <p class="profile-name">Patient Name: Sanket Gambhire</p>
+                <p class="profile-bloodGroup">Blood Group: B+</p>
+                <p class="profile-contact">Contact: 9860185864</p>
+                <p class="profile-address">Address: flat no-1103, nucleus app. mg road, pune 400201</p>
+               <a href="file:///C:/Users/Dell/Desktop/coep%20hack/History.html"><button class="his">History</button></a>
+                <a href="file:///C:/Users/Dell/Desktop/coep%20hack/payment.html"><button class="pay-button">Pay</button></a> <!-- New Pay button -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
